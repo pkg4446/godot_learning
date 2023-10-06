@@ -15,3 +15,13 @@ texture = ExtResource("2_pe1vs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bv6g5")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GranadeReloadTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_granade_reload_timer_timeout"]
