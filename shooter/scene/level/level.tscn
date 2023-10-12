@@ -56,44 +56,44 @@ texture_repeat = 2
 position = Vector2(535, 853)
 texture = ExtResource("2_on6pi")
 region_enabled = true
-region_rect = Rect2(-731.375, -114, 3699, 2271.38)
+region_rect = Rect2(-2421.53, -311.592, 16000, 10000)
 
 [node name="Decoration" type="Sprite2D" parent="Ground"]
 position = Vector2(-284, 1042)
 texture = ExtResource("3_fe8dt")
 
-[node name="Moss1" type="Sprite2D" parent="Ground"]
-position = Vector2(1244, 1224)
-texture = ExtResource("4_tx6h6")
-
-[node name="Moss2" type="Sprite2D" parent="Ground"]
-position = Vector2(1350, 797)
-texture = ExtResource("5_odokk")
-
-[node name="Moss3" type="Sprite2D" parent="Ground"]
-position = Vector2(1690, 680)
-texture = ExtResource("6_gpemu")
-
-[node name="Moss4" type="Sprite2D" parent="Ground"]
-position = Vector2(1679, 1198)
-texture = ExtResource("7_7x2vt")
-
-[node name="Moss5" type="Sprite2D" parent="Ground"]
-position = Vector2(1871, 1507)
-texture = ExtResource("8_ms8f8")
-
 [node name="TileMap" type="TileMap" parent="Ground"]
 tile_set = SubResource("TileSet_o6ibt")
 format = 2
 layer_0/name = "soil"
-layer_0/tile_data = PackedInt32Array(65532, 131073, 0, 131068, 131073, 2, 65531, 1, 0, 131067, 1, 2)
+layer_0/tile_data = PackedInt32Array(65532, 131073, 0, 131068, 131073, 2, 65531, 1, 0, 131067, 1, 2, 196618, 1, 1, 131082, 1, 1, 65546, 1, 1, 9, 65537, 2, 7, 65537, 2, 8, 65537, 2, -65530, 1, 1, -131066, 1, 1, 262155, 65537, 2, 262156, 65537, 2, 262157, 131073, 2, 196621, 131073, 1, 131085, 131073, 1, 65549, 131073, 1, 13, 131073, 1, -65523, 131073, 1, -131059, 131073, 1, -196601, 65537, 0, -196600, 65537, 0, -196599, 65537, 0, -196598, 65537, 0, -196597, 65537, 0, -196596, 65537, 0, -196602, 1, 0, 6, 1, 2, 262154, 1, 2, -196595, 131073, 0, 10, 65537, 1, -131062, 65537, 1, -131063, 65537, 1, -131064, 65537, 1, -131065, 65537, 1, -65529, 65537, 1, -65528, 65537, 1, -65527, 65537, 1, -65526, 65537, 1, -65525, 65537, 1, -131061, 65537, 1, -131060, 65537, 1, -65524, 65537, 1, 12, 65537, 1, 11, 65537, 1, 65547, 65537, 1, 131083, 65537, 1, 196619, 65537, 1, 196620, 65537, 1, 131084, 65537, 1, 65548, 65537, 1)
 layer_1/name = "walls"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-131068, 131072, 0, 65532, 131072, 0, 65531, 65536, 0, 65530, 65536, 0, 65529, 65536, 0, 6, 0, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 131072, 0, 65528, 0, 0)
+layer_1/tile_data = PackedInt32Array(-131068, 131072, 0, 65532, 131072, 0, 65531, 65536, 0, 65530, 65536, 0, 65529, 65536, 0, 6, 0, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 131072, 1, 65528, 65536, 1, 65546, 0, 2, 131082, 0, 2, 262154, 0, 3, 196618, 0, 2, 131064, 0, 2, 196600, 0, 2, 262136, 0, 2, 327672, 0, 3)
+
+[node name="Moss1" type="Sprite2D" parent="Ground"]
+position = Vector2(3612, 1316)
+texture = ExtResource("4_tx6h6")
+
+[node name="Moss2" type="Sprite2D" parent="Ground"]
+position = Vector2(3883, 584)
+texture = ExtResource("5_odokk")
+
+[node name="Moss4" type="Sprite2D" parent="Ground"]
+position = Vector2(2609, 373)
+texture = ExtResource("7_7x2vt")
+
+[node name="Moss5" type="Sprite2D" parent="Ground"]
+position = Vector2(3446, 389)
+texture = ExtResource("8_ms8f8")
+
+[node name="Moss3" type="Sprite2D" parent="Ground"]
+position = Vector2(3915, 369)
+texture = ExtResource("6_gpemu")
 
 [node name="Gate" parent="." instance=ExtResource("3_uhinn")]
 position = Vector2(521, -465)
