@@ -1,12 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://vic6sh0eurne"]
+[gd_scene load_steps=9 format=3 uid="uid://vic6sh0eurne"]
 
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_bgku5"]
 [ext_resource type="Texture2D" uid="uid://cqyoyd48sghvs" path="res://graphics/player/player.png" id="2_pe1vs"]
+[ext_resource type="Texture2D" uid="uid://c0r1ctagnc03" path="res://graphics/decals/white.png" id="3_dbo8o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bv6g5"]
 radius = 67.624
 
+[sub_resource type="Gradient" id="Gradient_eargb"]
+colors = PackedColorArray(0, 0.717647, 0.737255, 0.545098, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ppy2s"]
+gradient = SubResource("Gradient_eargb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iovgu"]
+particle_flag_disable_z = true
+spread = 14.6
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1200.0
+initial_velocity_max = 1500.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.3
+scale_max = 0.6
+color = Color(0, 1, 1, 0.494118)
+color_ramp = SubResource("GradientTexture1D_ppy2s")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g5opr"]
+polygon = PackedVector2Array(-16, -57, -4, -60, 5, -55, 18, -60, 30, -47, 42, -31, 42, -26, 59, -23, 67, -10, 76, -7, 81, -10, 92, -3, 103, -1, 109, 3, 114, 3, 119, 6, 126, 11, 128, 27, 123, 35, 116, 37, 99, 39, 91, 46, 90, 55, 56, 54, 52, 47, 37, 42, 21, 48, 3, 57, -19, 63, -41, 56, -49, 39, -57, 28, -60, 21, -68, 8, -68, -14, -61, -31, -51, -42, -33, -48)
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 31
 script = ExtResource("1_bgku5")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
@@ -35,6 +59,17 @@ position = Vector2(143, 13)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPosition"]
 position = Vector2(139, 32)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(126, 22)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_iovgu")
+texture = ExtResource("3_dbo8o")
+lifetime = 0.2
+one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_g5opr")
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GranadeReloadTimer" to="." method="_on_granade_reload_timer_timeout"]

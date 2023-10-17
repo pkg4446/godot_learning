@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmh8ofla83o8x"]
+[gd_scene load_steps=19 format=3 uid="uid://bmh8ofla83o8x"]
 
 [ext_resource type="Script" path="res://scene/level/level.gd" id="1_mi4p4"]
 [ext_resource type="Texture2D" uid="uid://6py0aytvqb8" path="res://graphics/ground/stones.png" id="2_on6pi"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://iargx070441t" path="res://graphics/tilesets/outside_walls.png" id="9_g5n6s"]
 [ext_resource type="Texture2D" uid="uid://dfa8qpltqtuds" path="res://graphics/tilesets/soil.png" id="10_hiod2"]
 [ext_resource type="PackedScene" uid="uid://b8vpj4ybadhnh" path="res://scene/house/house.tscn" id="11_8xbhb"]
+[ext_resource type="PackedScene" uid="uid://xlshe06k2yf5" path="res://scene/object/light_fan_animation.tscn" id="12_mxdtw"]
+[ext_resource type="PackedScene" uid="uid://u1lgpcpde2uo" path="res://scene/object/steam_vent.tscn" id="14_urp38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yaxi4"]
 resource_name = "walls"
@@ -97,23 +99,35 @@ position = Vector2(3915, 369)
 texture = ExtResource("6_gpemu")
 
 [node name="House" parent="Ground" instance=ExtResource("11_8xbhb")]
-position = Vector2(-57, 3614)
+position = Vector2(355, 3812)
 rotation = 3.57967
+
+[node name="LightFanAnimation" parent="Ground" instance=ExtResource("12_mxdtw")]
+position = Vector2(-1377, 2171)
+autoplay = "default"
 
 [node name="Gate" parent="." instance=ExtResource("3_uhinn")]
 position = Vector2(521, -465)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_ubedq")]
 position = Vector2(490, 293)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
 limit_left = -10000
 limit_top = -10000
 limit_right = 10000
 limit_bottom = 10000
 
 [node name="Projectiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
+[node name="SteamVent" parent="." instance=ExtResource("14_urp38")]
+position = Vector2(264, 581)
+
+[connection signal="player_enterd" from="Ground/House" to="." method="_on_house_player_enterd"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="granede" from="Player" to="." method="_on_player_granede"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
