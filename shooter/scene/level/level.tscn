@@ -99,11 +99,11 @@ position = Vector2(3915, 369)
 texture = ExtResource("6_gpemu")
 
 [node name="House" parent="Ground" instance=ExtResource("11_8xbhb")]
-position = Vector2(355, 3812)
+position = Vector2(793, 3212)
 rotation = 3.57967
 
 [node name="LightFanAnimation" parent="Ground" instance=ExtResource("12_mxdtw")]
-position = Vector2(-1377, 2171)
+position = Vector2(-906, 1486)
 autoplay = "default"
 
 [node name="Gate" parent="." instance=ExtResource("3_uhinn")]
@@ -111,7 +111,7 @@ position = Vector2(521, -465)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_ubedq")]
-position = Vector2(490, 293)
+position = Vector2(511, 429)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
